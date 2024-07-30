@@ -28,6 +28,10 @@
   font-size: 14px;
   border-radius: 4px;
   line-height: 35px;
+  @media(min-width: 860px) {
+    line-height: 42px;
+    min-height: 42px;
+  }
 }
 
 .promoInput {
@@ -52,6 +56,22 @@
   right: 12px;
   transform: translateY(-50%);
   z-index: 10;
+}
+
+.promoHeading {
+  @media(min-height: 860px) {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 12px;
+  }
+}
+
+.promoHelper {
+  font-family: Avenir, sans-serif;
+  @media(min-height: 860px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .promoSubmit {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Burger from '@/components/Burger';
 import Logo from '@/components/Logo';
 import AddDeposit from '@/components/AddDeposit';
@@ -12,10 +12,14 @@ import './style.scss';
 
 const Header: React.FC = () => {
   const dispatch = useAppDispatch();
+  const [isSearchOpen, setSearchOpen] = useState<boolean>(false);
   const handleBurgerClick = (e: any) => {
     e.stopPropagation();
     dispatch(setMenuOpened());
   };
+  const handleSearchClick = () => {
+    setSearchOpen(true);
+  }
   return (
     <header className='header'>
       <div className='container'>
@@ -25,14 +29,21 @@ const Header: React.FC = () => {
             <Logo/>
           </div>
           <div className='rightSide flex-s-b'>
-            <div className="headerUserInteractions">
-              <img src={headerSearchImg} className='headerSearchImg'/>
+            <div className='headerUserInteractions'>
+              {isSearchOpen ?
+                <div className='headerSearchInputWrapper'>
+                  <input type='text' className='headerSearchInput'/>
+                  <img src={headerSearchImg} className='headerSearchImgInput'/>
+                </div>
+                :
+                <img onClick={handleSearchClick} src={headerSearchImg} className='headerSearchImg'/>
+              }
               <img src={headerGiftsImg} className='headerGiftsImg'/>
-              <img src={headerNotificationsImg} className="headerNotificationsImg"/>
+              <img src={headerNotificationsImg} className='headerNotificationsImg'/>
             </div>
             <AddDeposit/>
-            <div className="headerUserLogo">
-              <img src={headerUserLogoImg} className="headerUserLogoImg"/>
+            <div className='headerUserLogo'>
+              <img src={headerUserLogoImg} className='headerUserLogoImg'/>
             </div>
           </div>
         </div>

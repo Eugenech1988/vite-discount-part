@@ -54,7 +54,7 @@ const addTransactionModal: React.FC = () => {
     <div className="addTransactionModalWrapper">
       {windowWidth > 859 &&
         <>
-          <div className="addTransactionOverlay"/>
+          <div className="addTransactionOverlay" onClick={handleCloseClick}/>
           <div className="addTransactionWrapper modal">
             <div className="addTransactionHeading flex-s-b">
               <div className="addTransactionBack flex-s-b" onClick={handleBackClick}>
