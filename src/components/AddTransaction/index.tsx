@@ -21,12 +21,12 @@ const AddTransaction: React.FC = () => {
   const navigate = useNavigate();
   const handleBackClick = () => {
     dispatch(setRemoveTransactionMenu());
-    dispatch(navigate('/'));
+    navigate('/');
   };
   const handleCloseClick = () => {
     dispatch(setRemoveTransactionMenu());
   };
-  const handleDiscountChange = (e) => {
+  const handleDiscountChange = (e: any) => {
     setPromoValue(e.target.value);
     if (e.target.value.length > 3) {
       setPromoRight(true);
@@ -38,11 +38,11 @@ const AddTransaction: React.FC = () => {
     setPromoRight(false);
     setPromoValue('');
   };
-  const addSomeAmount = (e) => {
+  const addSomeAmount = (e: any) => {
     const amountToAdd = Number(e.target.innerHTML.split(' ')[1].slice(1));
     const amountThatWas = Number(currentAmount.split(' ')[1]);
     let result;
-    if ((amountThatWas + amountToAdd) < amount) {
+    if ((amountThatWas + amountToAdd) < Number(amount)) {
       result = amountThatWas + amountToAdd;
     } else {
       result = amountThatWas;

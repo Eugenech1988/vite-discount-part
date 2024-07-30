@@ -5,7 +5,7 @@ import './style.scss';
 const Promo: React.FC = () => {
   const [isPromoRight, setPromoRight] = useState<boolean>(false);
   const [promoValue, setPromoValue] = useState<string>('');
-  const handlePromoChange = (e) => {
+  const handlePromoChange = (e: any) => {
     setPromoValue(e.target.value);
     if (e.target.value.length > 3) {
       setPromoRight(true);

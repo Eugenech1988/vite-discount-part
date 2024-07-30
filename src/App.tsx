@@ -25,7 +25,7 @@ const App: React.FC = () => {
       </CSSTransition>
       <CSSTransition
         in={showTransactionMenu}
-        // timeout={300}
+        timeout={0}
         // classNames='transactionModal'
         unmountOnExit
       >

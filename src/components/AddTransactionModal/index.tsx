@@ -10,7 +10,7 @@ import checkIcon from '@/assets/check.svg';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';
 
-const addTransactionModal = () => {
+const addTransactionModal: React.FC = () => {
   const [isPromoRight, setPromoRight] = useState<boolean>(false);
   const [promoValue, setPromoValue] = useState<string>('');
   const [currentAmount, setCurrentAmount] = useState<string>('$ 21');
@@ -21,12 +21,12 @@ const addTransactionModal = () => {
   const amount = useAppSelector(state => state.main.currentAmount);
   const handleBackClick = () => {
     dispatch(setRemoveTransactionMenu());
-    dispatch(navigate('/'));
+    navigate('/');
   };
   const handleCloseClick = () => {
     dispatch(setRemoveTransactionMenu());
   };
-  const handleDiscountChange = (e) => {
+  const handleDiscountChange = (e: any) => {
     setPromoValue(e.target.value);
     if (e.target.value.length > 3) {
       setPromoRight(true);
@@ -38,15 +38,16 @@ const addTransactionModal = () => {
     setPromoRight(false);
     setPromoValue('');
   };
-  const addSomeAmount = (e) => {
+  const addSomeAmount = ( e: any) => {
     const amountToAdd = Number(e.target.innerHTML.split(' ')[1].slice(1));
     const amountThatWas = Number(currentAmount.split(' ')[1]);
     let result;
-    if ((amountThatWas + amountToAdd) < amount) {
+    if ((amountThatWas + amountToAdd) < Number(amount)) {
       result = amountThatWas + amountToAdd;
     } else {
       result = amountThatWas;
     }
+    console.log(result);
     setCurrentAmount(`$ ${result.toString()}`);
   };
   return (

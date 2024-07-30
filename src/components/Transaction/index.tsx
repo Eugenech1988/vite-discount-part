@@ -4,7 +4,7 @@ import cx from 'classnames';
 import './style.scss';
 
 export type TTransaction = {
-  transactionId?: string,
+  // transactionId?: string,
   paymentImg: string,
   statusType: string,
   transactionPayment: string,
@@ -14,7 +14,7 @@ export type TTransaction = {
 }
 
 const Transaction: React.FC<TTransaction> = ({
-                                               transactionId,
+                                               // transactionId,
                                                paymentImg,
                                                statusType,
                                                transactionPayment,

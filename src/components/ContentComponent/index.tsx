@@ -2,7 +2,6 @@ import React from 'react';
 import CardsList from '@/components/CadsList';
 import { cryptoCurrency, physicalCards } from '@/mocks/cards';
 import Promo from '@/components/Promo';
-import transactionsTrigger from '@/assets/transactions-icon.svg';
 import TransactionsList from '@/components/TransactionsList';
 import { useAppSelector } from '@/store/storeHook';
 import { transactions } from '@/mocks/transactions';
@@ -46,12 +45,6 @@ const ContentComponent: React.FC = () => {
           <Promo/>
         </section>
         <section className='paymentSection transactionsSection'>
-          <h3 className='transactionsHeading subHeading'>
-            Transactions
-            <button className='transactionsTrigger'>
-              <img src={transactionsTrigger}/>
-            </button>
-          </h3>
           <TransactionsList
             transactionList={transactions}
           />

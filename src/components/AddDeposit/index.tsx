@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import chevronIcon from '@/assets/chevron.svg';
 import plusIcon from '@/assets/plus.svg';
-import { setAddTransactionMenu, setCurrentBalance } from '@/slices/mainSlice';
+import { setCurrentBalance } from '@/slices/mainSlice';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import './style.scss';
 
@@ -13,14 +13,14 @@ const AddDeposit: React.FC = () => {
   const handleListClick = () => {
     setDepositListOpen(!depositListOpen);
   };
-  const handleSetDeposit = (e) => {
+  const handleSetDeposit = (e: any) => {
     const splitValue = e.target.innerHTML.split(' ')
     dispatch(setCurrentBalance({amount: splitValue[0], currency: splitValue[1]}))
     setDepositListOpen(false);
   };
-  const handeAddTransaction = () => {
-    dispatch(setAddTransactionMenu());
-  };
+  // const handeAddTransaction = () => {
+  //   dispatch(setAddTransactionMenu());
+  // };
   return (
     <div className="depositWrapper flex-s-b">
       <div className="leftSide flex-s-b">
@@ -43,7 +43,7 @@ const AddDeposit: React.FC = () => {
         }
       </div>
       <div className="rightSide">
-        <button className="addDepositButton" onClick={handeAddTransaction}>
+        <button className="addDepositButton">
           <img src={plusIcon} alt="plus"/>
         </button>
       </div>

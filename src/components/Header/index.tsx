@@ -8,13 +8,11 @@ import headerSearchImg from '@/assets/search.svg';
 import headerUserLogoImg from '@/assets/header-user-logo.png';
 import { useAppDispatch } from '@/store/storeHook';
 import { setMenuOpened } from '@/slices/mainSlice';
-import useWindowWidth from '@/helpers/useWindowWidth';
 import './style.scss';
 
 const Header: React.FC = () => {
-  const windowWidth = useWindowWidth();
   const dispatch = useAppDispatch();
-  const handleBurgerClick = (e) => {
+  const handleBurgerClick = (e: any) => {
     e.stopPropagation();
     dispatch(setMenuOpened());
   };
