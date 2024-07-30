@@ -1,0 +1,104 @@
+@import "../../commonStyles/colors";
+.addTransactionModalWrapper {
+  position: relative;
+}
+
+.addTransactionOverlay {
+  position: fixed;
+  background-color: #060708;
+  opacity: 0.8;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+}
+
+.addTransactionWrapper.modal {
+  position: absolute;
+  height: 610px;
+  width: 710px;
+  border-radius: 4px;
+  top: 43px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  padding: 30px;
+  .addTransactionHeading {
+    padding-top: 0;
+  }
+  .addTransactionClose {
+    padding: 0;
+    margin-top: 6px;
+  }
+  .addTransactionsBalanceBadge {
+    border-radius: 0;
+    width: calc(100% + 60px);
+    margin-left: -30px;
+    margin-right: -30px;
+    min-height: 48px;
+    font-size: 16px;
+    line-height: 48px;
+  }
+  .addTransactionsBalanceCount {
+    font-size: 24px;
+    line-height: 42px;
+  }
+  .addTransactionPaymentMethodWrapper {
+    min-height: 70px;
+    padding: 16px 23px 16px 16px;
+  }
+  .addTransactionPaymentMethodLogo {
+    padding-right: 19px;
+  }
+  .addTransactionPaymentTitle {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 4px;
+  }
+  .addTransactionPaymentSubTitle {
+    font-size: 12px;
+    line-height: 16px;
+    color: $secondaryTextColor;
+  }
+  .addTransactionAmount {
+    line-height: 48px;
+    min-height: 48px;
+    font-size: 18px;
+  }
+  .addTransactionAddAmount {
+    min-height: 42px;
+    line-height: 42px;
+    width: 116px;
+    margin-right: 17px;
+    font-size: 16px;
+    &:last-child {
+      margin-right: 0;
+      width: 118px;
+    }
+  }
+  .addTransactionClarification {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .addAddTransactionDiscount {
+    margin-bottom: 12px;
+  }
+  .addTransactionDiscountInputWrapper {
+    width: 465px;
+    margin-right: 29px;
+  }
+  .addTransactionDiscountBtn {
+    width: 155px;
+  }
+  .addTransactionDiscountBtn, .addTransactionDiscountInput {
+    height: 42px;
+    line-height: 42px;
+  }
+  .addTransactionSubmitBtn {
+    height: 48px;
+    line-height: 48px;
+  }
+}

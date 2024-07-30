@@ -1,0 +1,73 @@
+@import "../../commonStyles/colors";
+
+.promoWrapper {
+  margin-bottom: 32px;
+}
+
+.promoInputWrapper {
+  position: relative;
+  margin-bottom: 12px;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  max-width: 490px;
+  @media(min-width: 680px) {
+    margin-right: 12px;
+  }
+  @media(min-width: 692px) {
+    margin-bottom: 0;
+    width: 100%;
+  }
+}
+
+.promoInput, .promoSubmit {
+  width: 100%;
+  min-height: 35px;
+  color: $mainTextColor;
+  font-family: Avenir, sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+  line-height: 35px;
+}
+
+.promoInput {
+  text-transform: uppercase;
+  padding: 0 12px;
+  position: relative;
+  font-weight: 400;
+  background: $secondary;
+  border: 0;
+  max-width: 490px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  &:focus {
+    outline: none;
+  }
+}
+
+.promoCheck {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.promoSubmit {
+  background-color: $danger;
+  text-align: center;
+  border: 0;
+  padding: 0;
+  max-width: 490px;
+  width: 100%;
+  &:disabled {
+    background-color: darken($danger, 30);
+    opacity: .5;
+  }
+  @media(min-width: 500px) {
+    width: 150px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

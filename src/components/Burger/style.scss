@@ -1,0 +1,22 @@
+.burger {
+  margin-right: 20px;
+  margin-top: 6px;
+  display: block;
+  cursor: pointer;
+  & div {
+    width: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    &:nth-child(2) {
+      width: 14px;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  @media(min-width: 860px) {
+    margin-top: 8px;
+  }
+}

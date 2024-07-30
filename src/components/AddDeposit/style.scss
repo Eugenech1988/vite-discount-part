@@ -1,0 +1,87 @@
+@import "../../commonStyles/colors";
+
+.depositWrapper {
+  .leftSide {
+    background-color: $cool;
+    color: $mainTextColor;
+    padding: 0 10px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    position: relative;
+    .depositNumbers {
+      position: absolute;
+      top: calc(100% + 3px);
+      background-color: $cool;
+      color: white;
+      right: 0;
+      display: inline-block;
+      font-family: Avenir, serif;
+      border-radius: 4px;
+      padding: 12px;
+      font-weight: 600;
+      animation: fadeIn .3s ease;
+      z-index: 20;
+      span {
+        display: block;
+        margin-bottom: 10px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+.depositNumber, .depositDiscount, .deposit {
+  font-family: Avenir, serif;
+  color: white;
+  font-weight: 800;
+}
+
+.depositNumber {
+  font-size: 14px;
+  line-height: 36px;
+  margin-right: 7px;
+}
+
+.depositDiscount {
+  background-color: $coolDeep;
+  font-size: 8px;
+  line-height: 8px;
+  padding: 3px;
+  border-radius: 3px;
+  margin-right: 8px;
+}
+
+.depositChevron {
+  margin-top: -2px;
+  & img {
+    transition: all .3s ease;
+  }
+  & img.up {
+    transform: rotate(180deg);
+  }
+}
+
+.addDepositButton {
+  background-color: $coolSecondary;
+  border: 0;
+  height: 36px;
+  width: 36px;
+  color: $mainTextColor;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

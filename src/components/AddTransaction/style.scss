@@ -1,0 +1,193 @@
+@import "../../commonStyles/colors";
+
+.addTransactionWrapper {
+  font-family: Avenir, sans-serif;
+  width: 320px;
+  height: calc(100vh - 72px);
+  color: $mainTextColor;
+  position: fixed;
+  top: 72px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 15;
+  background-color: $prime;
+}
+
+.addTransactionClose {
+  border: 0;
+  background-color: $prime;
+  font-family: Avenir, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+
+.addTransactionBack {
+  cursor: pointer;
+}
+
+.addTransactionBackIcon {
+  margin-right: 15px;
+}
+
+.addTransactionHeading {
+  padding-top: 9px;
+  margin-bottom: 19px;
+}
+
+.addTransactionsBalanceBadge {
+  background-color: $cool;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 42px;
+  margin-bottom: 25px;
+}
+
+.addTransactionBalanceCount {
+  font-size: 18px;
+  line-height: 42px;
+  font-weight: 800;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addTransactionPaymentTitle, .addTransactionPaymentSubTitle {
+  display: block;
+}
+
+.addTransactionPaymentTitle {
+  font-size: 14px;
+  line-height: 14px;
+  margin-bottom: 7px;
+}
+
+.addTransactionPaymentSubTitle {
+  font-size: 8px;
+  line-height: 8px;
+}
+
+.addTransactionPaymentMethodWrapper {
+  background-color: $secondary;
+  border-radius: 4px;
+  min-height: 60px;
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.addTransactionAmountHeading {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.addTransactionAddAmount, .addTransactionAmount {
+  min-height: 35px;
+  line-height: 35px;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 4px;
+  background-color: $secondary;
+}
+
+.addTransactionAmount {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.addTransactionAddAmountWrapper {
+  margin-bottom: 14px;
+}
+
+.addTransactionAddAmount {
+  width: 52px;
+  margin-right: 5px;
+  float: left;
+  font-size: 12px;
+  line-height: 35px;
+  cursor: pointer;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.addTransactionClarification {
+  font-size: 12px;
+  line-height: 16px;
+  color: $secondaryTextColor;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.addTransactionDiscountWrapper {
+  margin-bottom: 24px;
+}
+
+.addAddTransactionDiscount {
+  font-size: 16px;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
+
+.addTransactionDiscountInput {
+  background-color: $secondary;
+  color: $mainTextColor;
+  text-transform: uppercase;
+  padding-left: 12px;
+  border: 0;
+  height: 35px;
+  width: 100%;
+  border-radius: 4px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.addTransactionDiscountInputWrapper {
+  width: 180px;
+  margin-right: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.addTransactionDiscountInputCheck {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+}
+
+.addTransactionDiscountBtn.submitBtn {
+  width: 85px;
+  height: 35px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 35px;
+  text-transform: capitalize;
+  color: $mainTextColor;
+  border-radius: 4px;
+}
+
+.addTransactionSubmitBtn {
+  width: 100%;
+  height: 35px;
+  color: $mainTextColor;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 14px;
+  line-height: 16px;
+  border-radius: 4px;
+}

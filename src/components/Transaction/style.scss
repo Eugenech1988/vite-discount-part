@@ -1,0 +1,101 @@
+@import "../../commonStyles/colors";
+
+.transactionWrapper {
+  font-family: Avenir, sans-serif;
+  color: $mainTextColor;
+  margin-bottom: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #1C1A1A;
+}
+
+.transactionCard {
+  width: 100%;
+  min-height: 38px;
+  background-color: $secondary;
+  padding: 0 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  @media(min-width: 860px) {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+  }
+}
+
+.transactionStatusMessage, .transactionFeatureHead, .transactionFeatureText {
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: capitalize;
+  white-space: nowrap;
+  @media(min-width: 860px) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.transactionFeatureText {
+  color: $secondaryTextColor;
+}
+
+.transactionStatusMessage {
+  &.processing {
+    color: #E5AA11;
+  }
+  &.active {
+    color: #00BA61;
+  }
+  &.performed {
+    color: #386DF8;
+  }
+}
+
+.statusMessage {
+  font-size: 8px;
+  line-height: 11px;
+  text-transform: capitalize;
+  color: $secondaryTextColor;
+  @media(min-width: 860px) {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+.transactionPaymentLogoWrapper {
+  @media(min-width: 860px) {
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: $secondary;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & img {
+      max-width: 44px;
+    }
+  }
+}
+
+.transactionInternals {
+  display: flex;
+  overflow: scroll;
+  padding-bottom: 16px;
+  margin-right: -20px;
+  margin-left: -20px;
+  padding-left: 20px;
+  border-bottom: 1px solid #1C1A1A;
+  @media(min-width: 860px) {
+    border-bottom: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+
+.transactionFeature {
+  max-width: 120px;
+  width: 100%;
+  @media(min-width: 860px) {
+    max-width: 100px;
+  }
+}

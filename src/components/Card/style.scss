@@ -1,0 +1,121 @@
+@import "../../commonStyles/colors";
+.cardsWrapper {
+  @media(min-width: 1070px) {
+    margin-bottom: 22px;
+  }
+}
+
+.cardWrapper {
+  background-color: $secondary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 4px;
+  width: 130px;
+  height: 80px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+  float: left;
+  color: $mainTextColor;
+  font-family: Avenir, sans-serif;
+  text-align: center;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+  @media(min-width: 470px) {
+    &:nth-child(even) {
+      margin-right: 20px;
+    }
+    &:nth-child(3) {
+      margin-right: 0;
+    }
+  }
+  @media(min-width: 620px) {
+    &:nth-child(3) {
+      margin-right: 20px;
+    }
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+  @media (min-width: 770px) {
+    &:nth-child(4) {
+      margin-right: 20px;
+    }
+    &:nth-child(5) {
+      margin-right: 0;
+    }
+  }
+  @media (min-width: 920px) {
+    &:nth-child(5) {
+      margin-right: 20px;
+    }
+    &:nth-child(6) {
+      margin-right: 0;
+    }
+  }
+  @media(min-width: 1070px) {
+    width: 170px;
+    height: 115px;
+    margin-bottom: 18px;
+    &:nth-child(6) {
+      margin-right: 20px;
+    }
+  }
+}
+
+.cardBadge {
+  width: 80px;
+  position: absolute;
+  top: -8px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+  font-size: 8px;
+  line-height: 16px;
+  border-radius: 2px;
+  &.regular {
+    background-color: $cool;
+  }
+  &.hot {
+    background-color: $danger;
+  }
+}
+
+.cardLogoWrapper {
+  min-height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media (min-width: 1070px) {
+    min-height: 65px;
+  }
+}
+
+.cardBottomTextWrapper {
+  min-height: 35px;
+  @media(min-width: 1070px) {
+    min-height: 50px;
+  }
+}
+
+.cardHeading {
+  font-size: 10px;
+  line-height: 14px;
+  @media (min-width: 1070px) {
+    font-size: 14px;
+    line-height: 19px;
+  }
+}
+
+.cardText {
+  color: $secondaryTextColor;
+  font-size: 8px;
+  line-height: 11px;
+  @media (min-width: 1070px) {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

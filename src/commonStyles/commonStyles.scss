@@ -1,0 +1,115 @@
+@import "colors";
+
+body {
+  background-color: $prime;
+}
+
+.container {
+  max-width: 1200px;
+  line-height: 100%;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.flex-s-b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inline-b-v-m {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.heading, .subHeading, .paymentHeading {
+  font-family: Avenir, sans-serif;
+  text-transform: capitalize;
+  color: $mainTextColor;
+}
+
+.heading {
+  font-size: 24px;
+  line-height: 33px;
+  margin-bottom: 12px;
+  @media(min-width: 400px) {
+    margin-bottom: 32px;
+  }
+}
+
+.subHeading {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 25px;
+  &.promoHeading {
+    margin-bottom: 0;
+  }
+}
+
+.paymentHeading {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 18px;
+}
+
+.promoHelper {
+  color: $secondaryTextColor;
+  font-size: 10px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.submitBtn {
+  background-color: $danger;
+  text-align: center;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  &:disabled {
+    background-color: darken($danger, 30);
+    opacity: .5;
+  }
+}
+
+.menu-enter, .transactionMenu-enter {
+  transform: translateX(-100%);
+}
+
+.menu-enter-active, .transactionMenu-enter-active {
+  transform: translateX(0);
+  transition: transform 300ms;
+}
+
+.menu-exit, .transactionMenu-exit {
+  transform: translateX(0);
+}
+
+.menu-exit-active, .transactionMenu-exit-active {
+  transform: translateX(-100%);
+  transition: transform 300ms;
+}
+
+.transactionModal-enter {
+  opacity: 0;
+}
+
+.transactionModal-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.transactionModal-exit {
+  opacity: 1;
+}
+
+.transactionModal-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
