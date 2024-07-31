@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { physicalCards } from '@/mocks/cards';
 import { TCard } from '@/components/Card'
 import { TTransaction } from '@/components/Transaction';
 
@@ -9,8 +8,7 @@ type TUiState = {
   transactions: TTransaction[],
   currentCurrency: string,
   currentAmount: string,
-  paymentCategory: string,
-  paymentMethodsInCategory: TCard[]
+  paymentMethod: TCard | null
 }
 
 const initialState: TUiState = {
@@ -19,8 +17,7 @@ const initialState: TUiState = {
   transactions: [],
   currentCurrency: '$',
   currentAmount: '125.02',
-  paymentCategory: 'Cards, E-Money, PIN',
-  paymentMethodsInCategory: physicalCards
+  paymentMethod: null
 };
 
 const mainSlice = createSlice({
@@ -49,9 +46,9 @@ const mainSlice = createSlice({
       state.currentCurrency = action.payload.currency;
       state.currentAmount = action.payload.amount;
     },
-    setPaymentCategory: (state, action: PayloadAction<string>) => {
-      state.paymentCategory = action.payload
-    }
+    setPaymentMethod: (state, action: PayloadAction<TCard>) => {
+      state.paymentMethod = action.payload
+    },
   }
 });
 

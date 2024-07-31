@@ -1,11 +1,11 @@
 import React from 'react';
 import Burger from '@/components/Burger';
-import Logo from '@/components/Logo';
 import AddDeposit from '@/components/AddDeposit';
 import headerNotificationsImg from '@/assets/ring.svg';
 import headerGiftsImg from '@/assets/gift.svg';
 import headerSearchImg from '@/assets/search.svg';
 import headerUserLogoImg from '@/assets/header-user-logo.png';
+import logo from '@/assets/logo.svg';
 import { useAppDispatch } from '@/store/storeHook';
 import { setMenuOpened } from '@/slices/mainSlice';
 import './style.scss';
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         <div className='headerInner flex-s-b'>
           <div className='leftSide flex-s-b' onClick={handleBurgerClick}>
             <Burger/>
-            <Logo/>
+            <img src={logo} alt='logo' className='logo inline-b-v-m'/>
           </div>
           <div className='rightSide flex-s-b'>
             <div className='headerUserInteractions'>

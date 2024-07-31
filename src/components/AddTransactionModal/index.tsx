@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import './style.scss';
 import { useNavigate } from 'react-router-dom';
+import DepositMethodsDropDown from '@/components/DepositMethodsDropDown';
 import backIcon from '@/assets/back.svg';
 import closeIcon from '@/assets/close.svg';
 import mastercardLogo from '@/assets/mastercard-logo.svg';
@@ -95,6 +96,7 @@ const addTransactionModal: React.FC = () => {
               <div className="thirdPart">
                 <img src={chevronIcon} className="chevron"/>
               </div>
+              {/*<DepositMethodsDropDown/>*/}
             </div>
             {/*here will be addTransaction logic*/}
             <div className="addTransactionAmountWrapper">
