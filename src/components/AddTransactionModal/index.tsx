@@ -144,8 +144,8 @@ const addTransactionModal: React.FC = () => {
                 </span>
                 </button>
               </div>
-              <button className="addTransactionSubmitBtn submitBtn">
-              <span onClick={handleCloseClick} className="addTransactionSubmitBtnText">
+              <button onClick={handleCloseClick} className="addTransactionSubmitBtn submitBtn">
+              <span className="addTransactionSubmitBtnText">
                 Deposit
               </span>
               </button>
