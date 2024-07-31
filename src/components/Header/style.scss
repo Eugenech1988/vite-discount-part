@@ -33,14 +33,21 @@
 
 .headerSearchInputWrapper {
   position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .headerSearchInput {
-
+  background-color: white;
+  border: 0;
+  width: 100%;
 }
 
 .headerSearchImgInput {
-
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
 }
 
 .headerUserLogo {

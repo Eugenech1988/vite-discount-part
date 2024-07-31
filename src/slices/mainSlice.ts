@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { physicalCards } from '@/mocks/cards';
+import { TCard } from '@/components/Card'
 import { TTransaction } from '@/components/Transaction';
 
 type TUiState = {
@@ -6,7 +8,9 @@ type TUiState = {
   addTransactionOpened: boolean,
   transactions: TTransaction[],
   currentCurrency: string,
-  currentAmount: string
+  currentAmount: string,
+  paymentCategory: string,
+  paymentMethodsInCategory: TCard[]
 }
 
 const initialState: TUiState = {
@@ -14,7 +18,9 @@ const initialState: TUiState = {
   addTransactionOpened: false,
   transactions: [],
   currentCurrency: '$',
-  currentAmount: '125.02'
+  currentAmount: '125.02',
+  paymentCategory: 'Cards, E-Money, PIN',
+  paymentMethodsInCategory: physicalCards
 };
 
 const mainSlice = createSlice({
@@ -33,15 +39,18 @@ const mainSlice = createSlice({
     setRemoveTransactionMenu: (state) => {
       state.addTransactionOpened = false
     },
-    setTransactions: (state, action) => {
+    setTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions = action.payload;
     },
-    setMoreTransactions: (state, action) => {
+    setMoreTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions.push(...action.payload);
     },
     setCurrentBalance: (state, action: PayloadAction<{currency: string; amount: string}>) => {
       state.currentCurrency = action.payload.currency;
       state.currentAmount = action.payload.amount;
+    },
+    setPaymentCategory: (state, action: PayloadAction<string>) => {
+      state.paymentCategory = action.payload
     }
   }
 });

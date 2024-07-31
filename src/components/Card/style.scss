@@ -19,7 +19,12 @@
   float: left;
   color: $mainTextColor;
   font-family: Avenir, sans-serif;
+  cursor: pointer;
   text-align: center;
+  transition: opacity .3s ease;
+  &:hover {
+    opacity: 0.75;
+  }
   &:nth-child(even) {
     margin-right: 0;
   }

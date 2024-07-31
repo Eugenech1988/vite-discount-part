@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                   <img src={headerSearchImg} className='headerSearchImgInput'/>
                 </div>
                 :
-                <img onClick={handleSearchClick} src={headerSearchImg} className='headerSearchImg'/>
+                <img src={headerSearchImg} className='headerSearchImg'/>
               }
               <img src={headerGiftsImg} className='headerGiftsImg'/>
               <img src={headerNotificationsImg} className='headerNotificationsImg'/>

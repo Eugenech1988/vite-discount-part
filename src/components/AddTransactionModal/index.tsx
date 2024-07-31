@@ -47,9 +47,11 @@ const addTransactionModal: React.FC = () => {
     } else {
       result = amountThatWas;
     }
-    console.log(result);
     setCurrentAmount(`$ ${result.toString()}`);
   };
+  const handlePaymentMethodClick = (e:any) => {
+    console.log(e.target.innerHTML);
+  }
   return (
     <div className="addTransactionModalWrapper">
       {windowWidth > 859 &&
@@ -78,7 +80,7 @@ const addTransactionModal: React.FC = () => {
               </div>
             </div>
             {/*here will be logic to choose payment method*/}
-            <div className="addTransactionPaymentMethodWrapper flex-s-b">
+            <div onClick={handlePaymentMethodClick} className="addTransactionPaymentMethodWrapper flex-s-b">
               <div className="firstPart flex-s-b">
                 <img src={mastercardLogo} className="addTransactionPaymentMethodLogo"/>
                 <div className="secondPart">
