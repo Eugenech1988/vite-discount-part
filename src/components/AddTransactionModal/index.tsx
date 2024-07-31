@@ -8,7 +8,7 @@ import mastercardLogo from '@/assets/mastercard-logo.svg';
 import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import useWindowWidth from '@/helpers/useWindowWidth';
-import { setTransactionMenu } from '@/slices/mainSlice';
+import { setRemoveTransactionMenu } from '@/slices/mainSlice';
 
 const addTransactionModal: React.FC = () => {
   const [isPromoRight, setPromoRight] = useState<boolean>(false);
@@ -20,11 +20,11 @@ const addTransactionModal: React.FC = () => {
   const currency = useAppSelector(state => state.main.currentCurrency);
   const amount = useAppSelector(state => state.main.currentAmount);
   const handleBackClick = () => {
-    dispatch(setTransactionMenu());
+    dispatch(setRemoveTransactionMenu());
     navigate('/');
   };
   const handleCloseClick = () => {
-    dispatch(setTransactionMenu());
+    dispatch(setRemoveTransactionMenu());
   };
   const handleDiscountChange = (e: any) => {
     setPromoValue(e.target.value);

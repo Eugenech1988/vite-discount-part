@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { physicalCards } from '@/mocks/cards';
-import { TCard } from '@/components/Card';
+import { TCard } from '@/components/Card'
 import { TTransaction } from '@/components/Transaction';
 
 type TUiState = {
@@ -28,10 +28,16 @@ const mainSlice = createSlice({
   initialState,
   reducers: {
     setMenuOpened: (state) => {
-      state.menuOpened = !state.menuOpened;
+      state.menuOpened = true
     },
-    setTransactionMenu: (state) => {
-      state.addTransactionOpened = !state.addTransactionOpened;
+    setMenuClosed: (state) => {
+      state.menuOpened = false
+    },
+    setAddTransactionMenu: (state) => {
+      state.addTransactionOpened = true
+    },
+    setRemoveTransactionMenu: (state) => {
+      state.addTransactionOpened = false
     },
     setTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions = action.payload;
@@ -39,21 +45,15 @@ const mainSlice = createSlice({
     setMoreTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions.push(...action.payload);
     },
-    setCurrentBalance: (state, action: PayloadAction<{ currency: string; amount: string }>) => {
+    setCurrentBalance: (state, action: PayloadAction<{currency: string; amount: string}>) => {
       state.currentCurrency = action.payload.currency;
       state.currentAmount = action.payload.amount;
     },
     setPaymentCategory: (state, action: PayloadAction<string>) => {
-      state.paymentCategory = action.payload;
+      state.paymentCategory = action.payload
     }
   }
 });
 
-export const {
-  setMenuOpened,
-  setTransactions,
-  setMoreTransactions,
-  setCurrentBalance,
-  setTransactionMenu,
-} = mainSlice.actions;
+export const { setMenuOpened, setMenuClosed, setTransactions, setMoreTransactions, setCurrentBalance, setAddTransactionMenu, setRemoveTransactionMenu } = mainSlice.actions;
 export default mainSlice.reducer;
