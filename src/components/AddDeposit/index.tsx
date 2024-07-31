@@ -18,9 +18,6 @@ const AddDeposit: React.FC = () => {
     dispatch(setCurrentBalance({amount: splitValue[0], currency: splitValue[1]}))
     setDepositListOpen(false);
   };
-  // const handeAddTransaction = () => {
-  //   dispatch(setAddTransactionMenu());
-  // };
   return (
     <div className="depositWrapper flex-s-b">
       <div className="leftSide flex-s-b">
