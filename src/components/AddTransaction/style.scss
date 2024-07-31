@@ -192,3 +192,13 @@
   line-height: 16px;
   border-radius: 4px;
 }
+
+.addTransactionChevron {
+  & img {
+    transition: transform .3s ease;
+  }
+  & img.up {
+    transform: rotate(180deg);
+    transition: transform .3s ease;
+  }
+}
