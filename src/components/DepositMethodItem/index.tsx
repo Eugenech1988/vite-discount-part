@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.scss';
 
 type TMethodItem = {
   logoImg: string,
@@ -13,9 +14,8 @@ const DepositMethodItem: React.FC<TMethodItem> = ({
                                                   }) => {
   return (
     <div className='depositMethodItemWrapper'>
-      <img src={logoImg}/>
-      <p>{cardHeading}</p>
-      <p>{cardText}</p>
+      <img className='depositMethodItemImg' src={logoImg}/>
+      <p className='depositMethodItemText'>{cardHeading}{'\u00A0'}{cardText}</p>
     </div>
   );
 };

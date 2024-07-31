@@ -1,7 +1,7 @@
 import React from 'react';
 import DepositMethodItem from '@/components/DepositMethodItem';
 import { physicalCards, cryptoCurrency } from '@/mocks/cards';
-import './index.scss';
+import './style.scss';
 
 const DepositMethodsDropDown: React.FC = () => {
   return (
@@ -9,9 +9,9 @@ const DepositMethodsDropDown: React.FC = () => {
       <p className="depositMethodDDCategoryHeading">
         Cards, E-Money, PIN
       </p>
-      {/*{physicalCards &&*/}
-      {/*  physicalCards.map(card => <DepositMethodItem {...card}/>)*/}
-      {/*}*/}
+      {physicalCards &&
+        physicalCards.map(card => <DepositMethodItem {...card}/>)
+      }
       <p className="depositMethodDDCategoryHeading">
         Cryptocurrency
       </p>
