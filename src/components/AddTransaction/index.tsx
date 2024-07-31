@@ -5,7 +5,7 @@ import mastercardLogo from '@/assets/mastercard-logo.svg';
 import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import { useNavigate } from 'react-router-dom';
-import { setRemoveTransactionMenu } from '@/slices/mainSlice';
+import { setTransactionMenu } from '@/slices/mainSlice';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import './style.scss';
@@ -20,11 +20,11 @@ const AddTransaction: React.FC = () => {
   const windowWidth = useWindowWidth();
   const navigate = useNavigate();
   const handleBackClick = () => {
-    dispatch(setRemoveTransactionMenu());
+    dispatch(setTransactionMenu());
     navigate('/');
   };
   const handleCloseClick = () => {
-    dispatch(setRemoveTransactionMenu());
+    dispatch(setTransactionMenu());
   };
   const handleDiscountChange = (e: any) => {
     setPromoValue(e.target.value);

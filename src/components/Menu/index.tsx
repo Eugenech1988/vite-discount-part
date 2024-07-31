@@ -4,18 +4,18 @@ import { routes } from '@/mocks/routes';
 import closeIcon from '@/assets/close.svg';
 import logo from '@/assets/logo.svg';
 import { useAppDispatch } from '@/store/storeHook';
-import { setMenuClosed, setRemoveTransactionMenu } from '@/slices/mainSlice';
+import { setMenuOpened, setTransactionMenu } from '@/slices/mainSlice';
 import './style.scss';
 
 const Menu: React.FC = () => {
   const dispatch = useAppDispatch();
   const handleClose = () => {
-    dispatch(setMenuClosed());
-    dispatch(setRemoveTransactionMenu());
+    dispatch(setMenuOpened());
+    dispatch(setTransactionMenu());
   };
   const onLinkClick = () => {
-    dispatch(setRemoveTransactionMenu());
-    dispatch(setMenuClosed());
+    dispatch(setTransactionMenu());
+    dispatch(setMenuOpened());
   };
   return (
     <div className='menuWrapper'>

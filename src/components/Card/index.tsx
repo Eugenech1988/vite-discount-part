@@ -1,7 +1,7 @@
 import React from 'react';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import { useAppDispatch } from '@/store/storeHook';
-import { setAddTransactionMenu } from '@/slices/mainSlice';
+import { setTransactionMenu } from '@/slices/mainSlice';
 import cx from 'classnames';
 import './style.scss';
 
@@ -29,7 +29,7 @@ const Card: React.FC<TCard> = ({
   const windowWidth = useWindowWidth();
   const dispatch = useAppDispatch();
   const handleCardClick = () => {
-    dispatch(setAddTransactionMenu());
+    dispatch(setTransactionMenu());
   }
   return (
     <div className="cardWrapper" onClick={handleCardClick}>
