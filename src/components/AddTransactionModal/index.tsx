@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import DepositMethodsDropDown from '@/components/DepositMethodsDropDown';
 import backIcon from '@/assets/back.svg';
 import closeIcon from '@/assets/close.svg';
-import mastercardLogo from '@/assets/mastercard-logo.svg';
 import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import useWindowWidth from '@/helpers/useWindowWidth';

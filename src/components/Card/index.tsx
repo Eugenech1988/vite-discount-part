@@ -12,8 +12,8 @@ export type TCard = {
   withBadge?: boolean,
   badgeType?: string,
   badgeText?: string,
-  cardHeading?: string
-  cardText?: string,
+  cardHeading: string
+  cardText: string,
   cardCurrency: string
 }
 

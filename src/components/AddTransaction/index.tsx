@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import backIcon from '@/assets/back.svg';
 import closeIcon from '@/assets/close.svg';
-import mastercardLogo from '@/assets/mastercard-logo.svg';
-import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import { useNavigate } from 'react-router-dom';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';

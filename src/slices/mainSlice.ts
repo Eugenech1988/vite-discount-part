@@ -8,7 +8,12 @@ type TUiState = {
   transactions: TTransaction[],
   currentCurrency: string,
   currentAmount: string,
-  paymentMethod: {} | null
+  paymentMethod: {
+    image: string,
+    heading: string,
+    text: string,
+    currency: string
+  }
 }
 
 const initialState: TUiState = {
