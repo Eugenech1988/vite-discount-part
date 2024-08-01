@@ -28,7 +28,8 @@ export const physicalCards = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'MasterCard',
-    cardText: 'Comparison: 3%'
+    cardText: 'Comparison: 3%',
+    cardCurrency: '$'
   },
   {
     cardId: '2',
@@ -38,7 +39,8 @@ export const physicalCards = [
     badgeType: 'hot',
     badgeText: 'trusted',
     cardHeading: 'Visa',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   },
   {
     cardId: '3',
@@ -48,7 +50,8 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Skrill',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   },
   {
     cardId: '4',
@@ -58,7 +61,8 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Private Money',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   },
   {
     cardId: '5',
@@ -68,7 +72,8 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Piastrix, EUR',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '€'
   },
   {
     cardId: '6',
@@ -78,7 +83,8 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Sticpay, EUR',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency:'€'
   },
   {
     cardId: '8',
@@ -88,7 +94,8 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'PIN',
-    cardText: 'Comparison: 1%'
+    cardText: 'Comparison: 1%',
+    cardCurrency: '$'
   }
 ];
 
@@ -101,7 +108,8 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'BTC',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   },
   {
     cardId: '2',
@@ -111,7 +119,8 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'Etherum',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   },
   {
     cardId: '3',
@@ -121,6 +130,7 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'USDT',
-    cardText: 'Comparison: 0%'
+    cardText: 'Comparison: 0%',
+    cardCurrency: '$'
   }
 ];

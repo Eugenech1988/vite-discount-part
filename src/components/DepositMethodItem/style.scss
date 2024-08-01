@@ -1,3 +1,15 @@
-.depositMethodItemWrapper {
+@import "../../commonStyles/colors";
 
+.depositMethodItemWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 16px;
+  min-height: 55px;
+  &:hover {
+    background-color: darken($secondary, 5%);
+  }
+}
+.depositMethodItemImg {
+  margin-right: 16px;
 }

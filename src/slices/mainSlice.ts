@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TCard } from '@/components/Card'
 import { TTransaction } from '@/components/Transaction';
 
 type TUiState = {
@@ -8,7 +7,7 @@ type TUiState = {
   transactions: TTransaction[],
   currentCurrency: string,
   currentAmount: string,
-  paymentMethod: TCard | null
+  paymentMethod: {} | null
 }
 
 const initialState: TUiState = {
@@ -17,7 +16,7 @@ const initialState: TUiState = {
   transactions: [],
   currentCurrency: '$',
   currentAmount: '125.02',
-  paymentMethod: null
+  paymentMethod: null,
 };
 
 const mainSlice = createSlice({
@@ -46,11 +45,15 @@ const mainSlice = createSlice({
       state.currentCurrency = action.payload.currency;
       state.currentAmount = action.payload.amount;
     },
-    setPaymentMethod: (state, action: PayloadAction<TCard>) => {
-      state.paymentMethod = action.payload
+    setPaymentMethod: (state, action: PayloadAction<{image: string; heading: string; text: string}>) => {
+      state.paymentMethod = {
+        image: action.payload.image,
+        heading: action.payload.heading,
+        text: action.payload.text
+      }
     },
   }
 });
 
-export const { setMenuOpened, setMenuClosed, setTransactions, setMoreTransactions, setCurrentBalance, setAddTransactionMenu, setRemoveTransactionMenu } = mainSlice.actions;
+export const { setMenuOpened, setMenuClosed, setTransactions, setMoreTransactions, setCurrentBalance, setAddTransactionMenu, setRemoveTransactionMenu, setPaymentMethod } = mainSlice.actions;
 export default mainSlice.reducer;

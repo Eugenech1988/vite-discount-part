@@ -15,9 +15,9 @@ const DepositMethodsDropDown: React.FC = () => {
       <p className="depositMethodDDCategoryHeading">
         Cryptocurrency
       </p>
-      {/*{cryptoCurrency &&*/}
-      {/*  cryptoCurrency.map(card => <DepositMethodItem {...card}/>)*/}
-      {/*}*/}
+      {cryptoCurrency &&
+        cryptoCurrency.map(card => <DepositMethodItem {...card}/>)
+      }
     </div>
   );
 };
