@@ -17,6 +17,7 @@ const AddTransaction: React.FC = () => {
   const dispatch = useAppDispatch();
   const currency = useAppSelector(state => state.main.currentCurrency);
   const amount = useAppSelector(state => state.main.currentAmount);
+  const paymentMethod = useAppSelector(state => state.main.paymentMethod);
   const windowWidth = useWindowWidth();
   const navigate = useNavigate();
   const handleBackClick = () => {
@@ -79,14 +80,14 @@ const AddTransaction: React.FC = () => {
               {/*here will be logic to choose payment method*/}
               <div className="addTransactionPaymentMethodWrapper flex-s-b">
                 <div className="firstPart">
-                  <img src={mastercardLogo} className="addTransactionPaymentMethodLogo"/>
+                  <img src={paymentMethod.image} className="addTransactionPaymentMethodLogo"/>
                 </div>
                 <div className="secondPart">
               <span className="addTransactionPaymentTitle">
-                Mastercard{'\u00A0\u00B7\u00A0'}Commission 3%
+                {paymentMethod.heading}{'\u00A0\u00B7\u00A0'}{paymentMethod.text}
               </span>
                   <span className="addTransactionPaymentSubTitle">
-                Please notice that you will send money in the USD
+                {'Please notice that you will send money in the' + (paymentMethod.currency === '$' ? 'USD' : 'EUR')}
               </span>
                 </div>
                 <div className="thirdPart">
