@@ -16,7 +16,7 @@ const initialState: TUiState = {
   transactions: [],
   currentCurrency: '$',
   currentAmount: '125.02',
-  paymentMethod: null,
+  paymentMethod: null
 };
 
 const mainSlice = createSlice({
@@ -24,16 +24,16 @@ const mainSlice = createSlice({
   initialState,
   reducers: {
     setMenuOpened: (state) => {
-      state.menuOpened = true
+      state.menuOpened = true;
     },
     setMenuClosed: (state) => {
-      state.menuOpened = false
+      state.menuOpened = false;
     },
     setAddTransactionMenu: (state) => {
-      state.addTransactionOpened = true
+      state.addTransactionOpened = true;
     },
     setRemoveTransactionMenu: (state) => {
-      state.addTransactionOpened = false
+      state.addTransactionOpened = false;
     },
     setTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions = action.payload;
@@ -41,19 +41,29 @@ const mainSlice = createSlice({
     setMoreTransactions: (state, action: PayloadAction<TTransaction[]>) => {
       state.transactions.push(...action.payload);
     },
-    setCurrentBalance: (state, action: PayloadAction<{currency: string; amount: string}>) => {
+    setCurrentBalance: (state, action: PayloadAction<{ currency: string; amount: string }>) => {
       state.currentCurrency = action.payload.currency;
       state.currentAmount = action.payload.amount;
     },
-    setPaymentMethod: (state, action: PayloadAction<{image: string; heading: string; text: string}>) => {
+    setPaymentMethod: (state, action: PayloadAction<{ image: string; heading: string; text: string, currency: string }>) => {
       state.paymentMethod = {
         image: action.payload.image,
         heading: action.payload.heading,
-        text: action.payload.text
-      }
-    },
+        text: action.payload.text,
+        currency: action.payload.currency
+      };
+    }
   }
 });
 
-export const { setMenuOpened, setMenuClosed, setTransactions, setMoreTransactions, setCurrentBalance, setAddTransactionMenu, setRemoveTransactionMenu, setPaymentMethod } = mainSlice.actions;
+export const {
+  setMenuOpened,
+  setMenuClosed,
+  setTransactions,
+  setMoreTransactions,
+  setCurrentBalance,
+  setAddTransactionMenu,
+  setRemoveTransactionMenu,
+  setPaymentMethod
+} = mainSlice.actions;
 export default mainSlice.reducer;

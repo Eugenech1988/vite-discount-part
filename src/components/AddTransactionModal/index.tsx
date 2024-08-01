@@ -21,6 +21,7 @@ const addTransactionModal: React.FC = () => {
   const windowWidth = useWindowWidth();
   const currency = useAppSelector(state => state.main.currentCurrency);
   const amount = useAppSelector(state => state.main.currentAmount);
+  const paymentMethod = useAppSelector(state => state.main.paymentMethod);
   const handleBackClick = () => {
     dispatch(setRemoveTransactionMenu());
     navigate('/');
@@ -90,7 +91,7 @@ const addTransactionModal: React.FC = () => {
                     Mastercard{'\u00A0\u00B7\u00A0'}Commission 3%
                   </span>
                   <span className='addTransactionPaymentSubTitle'>
-                    Please notice that you will send money in the USD
+                    {'Please notice that you will send money in the' + (paymentMethod.currency === '$' ? 'USD' : 'EUR')}
                   </span>
                 </div>
               </div>
