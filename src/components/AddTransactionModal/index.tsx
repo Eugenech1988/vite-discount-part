@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import { useNavigate } from 'react-router-dom';
-// import { CSSTransition } from 'react-transition-group';
 import DepositMethodsDropDown from '@/components/DepositMethodsDropDown';
 import backIcon from '@/assets/back.svg';
 import closeIcon from '@/assets/close.svg';
