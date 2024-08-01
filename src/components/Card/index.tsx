@@ -1,7 +1,7 @@
 import React from 'react';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import { useAppDispatch } from '@/store/storeHook';
-import { setAddTransactionMenu } from '@/slices/mainSlice';
+import { setAddTransactionMenu, setPaymentMethod } from '@/slices/mainSlice';
 import cx from 'classnames';
 import './style.scss';
 
@@ -14,6 +14,7 @@ export type TCard = {
   badgeText?: string,
   cardHeading?: string
   cardText?: string,
+  cardCurrency: string
 }
 
 const Card: React.FC<TCard> = ({
@@ -25,11 +26,18 @@ const Card: React.FC<TCard> = ({
                                  badgeText,
                                  cardHeading,
                                  cardText,
+                                 cardCurrency
                                }) => {
   const windowWidth = useWindowWidth();
   const dispatch = useAppDispatch();
   const handleCardClick = () => {
     dispatch(setAddTransactionMenu());
+    dispatch(setPaymentMethod({
+      image: logoImg,
+      heading: cardHeading,
+      text: cardText,
+      currency: cardCurrency
+    }))
   }
   return (
     <div className="cardWrapper" onClick={handleCardClick}>

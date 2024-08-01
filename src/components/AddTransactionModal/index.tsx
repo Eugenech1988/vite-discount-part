@@ -82,10 +82,9 @@ const addTransactionModal: React.FC = () => {
                 </p>
               </div>
             </div>
-            {/*here will be logic to choose payment method*/}
             <div onClick={handlePaymentMethodClick} className={'addTransactionPaymentMethodWrapper flex-s-b' + (showMethodsDD ? ' active' : '')}>
               <div className='firstPart flex-s-b'>
-                <img src={mastercardLogo} className='addTransactionPaymentMethodLogo'/>
+                <img src={paymentMethod.image} className='addTransactionPaymentMethodLogo'/>
                 <div className='secondPart'>
                   <span className='addTransactionPaymentTitle'>
                     {paymentMethod.heading}{'\u00A0\u00B7\u00A0'}{paymentMethod.text}
