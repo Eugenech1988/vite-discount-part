@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import { useNavigate } from 'react-router-dom';
+// import { CSSTransition } from 'react-transition-group';
 import DepositMethodsDropDown from '@/components/DepositMethodsDropDown';
 import backIcon from '@/assets/back.svg';
 import closeIcon from '@/assets/close.svg';
@@ -88,10 +89,10 @@ const addTransactionModal: React.FC = () => {
                 <img src={mastercardLogo} className='addTransactionPaymentMethodLogo'/>
                 <div className='secondPart'>
                   <span className='addTransactionPaymentTitle'>
-                    Mastercard{'\u00A0\u00B7\u00A0'}Commission 3%
+                    {paymentMethod.heading}{'\u00A0\u00B7\u00A0'}{paymentMethod.text}
                   </span>
                   <span className='addTransactionPaymentSubTitle'>
-                    {'Please notice that you will send money in the' + (paymentMethod.currency === '$' ? 'USD' : 'EUR')}
+                    {'Please notice that you will send money in the' + (paymentMethod && paymentMethod.currency === '$' ? ' USD' : ' EUR')}
                   </span>
                 </div>
               </div>

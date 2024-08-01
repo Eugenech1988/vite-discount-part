@@ -28,7 +28,7 @@ export const physicalCards = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'MasterCard',
-    cardText: 'Comparison: 3%',
+    cardText: 'Commission: 3%',
     cardCurrency: '$'
   },
   {
@@ -39,7 +39,7 @@ export const physicalCards = [
     badgeType: 'hot',
     badgeText: 'trusted',
     cardHeading: 'Visa',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   },
   {
@@ -50,7 +50,7 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Skrill',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   },
   {
@@ -61,7 +61,7 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Private Money',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   },
   {
@@ -72,7 +72,7 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Piastrix, EUR',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '€'
   },
   {
@@ -83,7 +83,7 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'Sticpay, EUR',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency:'€'
   },
   {
@@ -94,7 +94,7 @@ export const physicalCards = [
     badgeType: '',
     badgeText: '',
     cardHeading: 'PIN',
-    cardText: 'Comparison: 1%',
+    cardText: 'Commission: 1%',
     cardCurrency: '$'
   }
 ];
@@ -108,7 +108,7 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'BTC',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   },
   {
@@ -119,7 +119,7 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'Etherum',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   },
   {
@@ -130,7 +130,7 @@ export const cryptoCurrency = [
     badgeType: 'regular',
     badgeText: 'popular',
     cardHeading: 'USDT',
-    cardText: 'Comparison: 0%',
+    cardText: 'Commission: 0%',
     cardCurrency: '$'
   }
 ];
