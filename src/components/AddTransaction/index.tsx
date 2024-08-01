@@ -90,9 +90,6 @@ const AddTransaction: React.FC = () => {
                 {'Please notice that you will send money in the' + (paymentMethod.currency === '$' ? 'USD' : 'EUR')}
               </span>
                 </div>
-                <div className="thirdPart">
-                  <img src={chevronIcon} className="chevron"/>
-                </div>
               </div>
               {/*here will be addTransaction logic*/}
               <div className="addTransactionAmountWrapper">
