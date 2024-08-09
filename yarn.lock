@@ -411,6 +411,13 @@
     "@types/prop-types" "*"
     csstype "^3.0.2"
 
+"@types/sass@^1.45.0":
+  version "1.45.0"
+  resolved "https://registry.yarnpkg.com/@types/sass/-/sass-1.45.0.tgz#a949eb1e080ff34715e6c2040357b940bffb89bb"
+  integrity sha512-jn7qwGFmJHwUSphV8zZneO3GmtlgLsmhs/LQyVvQbIIa+fzGMUiHI4HXJZL3FT8MJmgXWbLGiVVY7ElvHq6vDA==
+  dependencies:
+    sass "*"
+
 "@types/use-sync-external-store@^0.0.3":
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz#b6725d5f4af24ace33b36fafd295136e75509f43"
@@ -1439,7 +1446,7 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-sass@^1.77.8:
+sass@*, sass@^1.77.8:
   version "1.77.8"
   resolved "https://registry.yarnpkg.com/sass/-/sass-1.77.8.tgz#9f18b449ea401759ef7ec1752a16373e296b52bd"
   integrity sha512-4UHg6prsrycW20fqLGPShtEvo/WyHRVRHwOP4DzkUrObWoWI05QBSfzU71TVB7PFaL104TwNaHpjlWXAZbQiNQ==

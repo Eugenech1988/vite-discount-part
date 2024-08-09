@@ -13,7 +13,7 @@ import './style.scss';
 const addTransactionModal: React.FC = () => {
   const [isPromoRight, setPromoRight] = useState<boolean>(false);
   const [promoValue, setPromoValue] = useState<string>('');
-  const [currentAmount, setCurrentAmount] = useState<string>('$ 21');
+  const [currentAmount, setCurrentAmount] = useState<string>('21');
   const [showMethodsDD, setMethodsDD] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -41,113 +41,126 @@ const addTransactionModal: React.FC = () => {
     setPromoValue('');
   };
   const addSomeAmount = (e: any) => {
-    const amountToAdd = Number(e.target.innerHTML.split(' ')[1].slice(1));
-    const amountThatWas = Number(currentAmount.split(' ')[1]);
+    const amountToAdd = globalThis.Number(e.target.innerHTML.split(' ')[1].slice(1));
+    const amountThatWas = globalThis.Number(currentAmount);
     let result;
-    if ((amountThatWas + amountToAdd) < Number(amount)) {
+    if ((amountThatWas + amountToAdd) <= globalThis.Number(amount)) {
       result = amountThatWas + amountToAdd;
     } else {
       result = amountThatWas;
     }
-    setCurrentAmount(`$ ${result.toString()}`);
+    setCurrentAmount(result.toString());
   };
   const handlePaymentMethodClick = () => {
     setMethodsDD(!showMethodsDD);
   };
+  const handleAmountChange = (e:any) => {
+    const {value} = e.target;
+    const numericValue = value.replace(/[^\d]/g, '');
+    if (amount !== undefined && !isNaN(amount) && globalThis.Number(numericValue) <= globalThis.Number(amount)) {
+      setCurrentAmount(numericValue.toString());
+    }
+  };
+  const handleKeyPress = (e:any) => {
+    if (e.key === 'Enter') {
+      e.currentTarget.blur();
+    }
+  }
   return (
-    <div className='addTransactionModalWrapper'>
+    <div className="addTransactionModalWrapper">
       {windowWidth > 859 &&
         <>
-          <div className='addTransactionOverlay' onClick={handleCloseClick}/>
-          <div className='addTransactionWrapper modal'>
-            <div className='addTransactionHeading flex-s-b'>
-              <div className='addTransactionBack flex-s-b' onClick={handleBackClick}>
-                <img className='addTransactionBackIcon' src={backIcon}/>
+          <div className="addTransactionOverlay" onClick={handleCloseClick}/>
+          <div className="addTransactionWrapper modal">
+            <div className="addTransactionHeading flex-s-b">
+              <div className="addTransactionBack flex-s-b" onClick={handleBackClick}>
+                <img className="addTransactionBackIcon" src={backIcon}/>
                 <p>Back to Payment Methods</p>
               </div>
-              <button className='addTransactionClose' onClick={handleCloseClick}>
+              <button className="addTransactionClose" onClick={handleCloseClick}>
                 <img src={closeIcon}/>
               </button>
             </div>
-            <div className='addTransactionsBalanceBadge'>
+            <div className="addTransactionsBalanceBadge">
               Current Balance:{'\u00A0'}
-              <div className='addTransactionBalanceCount'>
-                <p className='currency'>
+              <div className="addTransactionBalanceCount">
+                <p className="currency">
                   {currency}
                 </p>
                 {'\u00A0'}
-                <p className='currentAmount'>
+                <p className="currentAmount">
                   {amount}
                 </p>
               </div>
             </div>
-            <div onClick={handlePaymentMethodClick} className={'addTransactionPaymentMethodWrapper flex-s-b' + (showMethodsDD ? ' active' : '')}>
-              <div className='firstPart flex-s-b'>
-                <img src={paymentMethod.image} className='addTransactionPaymentMethodLogo'/>
-                <div className='secondPart'>
-                  <span className='addTransactionPaymentTitle'>
+            <div onClick={handlePaymentMethodClick}
+                 className={'addTransactionPaymentMethodWrapper flex-s-b' + (showMethodsDD ? ' active' : '')}>
+              <div className="firstPart flex-s-b">
+                <img src={paymentMethod.image} className="addTransactionPaymentMethodLogo"/>
+                <div className="secondPart">
+                  <span className="addTransactionPaymentTitle">
                     {paymentMethod.heading}{'\u00A0\u00B7\u00A0'}{paymentMethod.text}
                   </span>
-                  <span className='addTransactionPaymentSubTitle'>
+                  <span className="addTransactionPaymentSubTitle">
                     {'Please notice that you will send money in the' + (paymentMethod && paymentMethod.currency === '$' ? ' USD' : ' EUR')}
                   </span>
                 </div>
               </div>
-              <div className='addTransactionChevron'>
+              <div className="addTransactionChevron">
                 <img src={chevronIcon} className={'chevron' + (showMethodsDD ? ' up' : '')}/>
               </div>
               {showMethodsDD &&
                 <DepositMethodsDropDown/>
               }
             </div>
-            {/*here will be addTransaction logic*/}
-            <div className='addTransactionAmountWrapper'>
-              <p className='addTransactionAmountHeading'>
+            <div className="addTransactionAmountWrapper">
+              <p className="addTransactionAmountHeading">
                 Amount
               </p>
-              <div className='addTransactionAmount'>
-                {currentAmount}
+              <div className="addTransactionAmount">
+                <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput" value={`$ ${currentAmount}`}
+                       type="text"/>
               </div>
-              <div className='addTransactionAddAmountWrapper clearfix'>
-              <span onClick={addSomeAmount} className='addTransactionAddAmount'>
+              <div className="addTransactionAddAmountWrapper clearfix">
+              <span onClick={addSomeAmount} className="addTransactionAddAmount">
                 + $10
               </span>
-                <span onClick={addSomeAmount} className='addTransactionAddAmount'>
+                <span onClick={addSomeAmount} className="addTransactionAddAmount">
                 + $20
               </span>
-                <span onClick={addSomeAmount} className='addTransactionAddAmount'>
+                <span onClick={addSomeAmount} className="addTransactionAddAmount">
                 + $30
               </span>
-                <span onClick={addSomeAmount} className='addTransactionAddAmount'>
+                <span onClick={addSomeAmount} className="addTransactionAddAmount">
                 + $50
               </span>
-                <span onClick={addSomeAmount} className='addTransactionAddAmount'>
+                <span onClick={addSomeAmount} className="addTransactionAddAmount">
                 + $100
               </span>
               </div>
-              <div className='addTransactionClarification'>
+              <div className="addTransactionClarification">
                 From 21.00 to 906.00 USD at a time
               </div>
-              <div className='addTransactionDiscountWrapper'>
-                <p className='addAddTransactionDiscount'>
+              <div className="addTransactionDiscountWrapper">
+                <p className="addAddTransactionDiscount">
                   Promo Code
                 </p>
-                <div className='addTransactionDiscountInputWrapper'>
+                <div className="addTransactionDiscountInputWrapper">
                   {isPromoRight &&
-                    <img src={checkIcon} className='addTransactionDiscountInputCheck'/>
+                    <img src={checkIcon} className="addTransactionDiscountInputCheck"/>
                   }
-                  <input placeholder='Promo Code' onChange={handleDiscountChange} value={promoValue} type='text'
-                         className='addTransactionDiscountInput'/>
+                  <input placeholder="Promo Code" onChange={handleDiscountChange} value={promoValue} type="text"
+                         className="addTransactionDiscountInput"/>
                 </div>
                 <button onClick={handleDiscountSubmit} disabled={!isPromoRight}
-                        className='addTransactionDiscountBtn submitBtn'>
-                <span className='addTransactionDiscountBtnText'>
+                        className="addTransactionDiscountBtn submitBtn">
+                <span className="addTransactionDiscountBtnText">
                   Add
                 </span>
                 </button>
               </div>
-              <button onClick={handleCloseClick} className='addTransactionSubmitBtn submitBtn'>
-              <span className='addTransactionSubmitBtnText'>
+              <button onClick={handleCloseClick} className="addTransactionSubmitBtn submitBtn">
+              <span className="addTransactionSubmitBtnText">
                 Deposit
               </span>
               </button>

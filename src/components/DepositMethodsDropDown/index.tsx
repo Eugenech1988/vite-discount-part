@@ -10,13 +10,13 @@ const DepositMethodsDropDown: React.FC = () => {
         Cards, E-Money, PIN
       </p>
       {physicalCards &&
-        physicalCards.map(card => <DepositMethodItem {...card}/>)
+        physicalCards.map((card, index) => <DepositMethodItem key={index} {...card}/>)
       }
       <p className="depositMethodDDCategoryHeading">
         Cryptocurrency
       </p>
       {cryptoCurrency &&
-        cryptoCurrency.map(card => <DepositMethodItem {...card}/>)
+        cryptoCurrency.map((card, index) => <DepositMethodItem  key={index}{...card}/>)
       }
     </div>
   );
