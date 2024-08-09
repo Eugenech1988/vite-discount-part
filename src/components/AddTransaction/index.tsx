@@ -11,7 +11,7 @@ import './style.scss';
 const AddTransaction: React.FC = () => {
   const [isPromoRight, setPromoRight] = useState<boolean>(false);
   const [promoValue, setPromoValue] = useState<string>('');
-  const [currentAmount, setCurrentAmount] = useState<string>('$ 21');
+  const [currentAmount, setCurrentAmount] = useState<string>('21');
   const dispatch = useAppDispatch();
   const currency = useAppSelector(state => state.main.currentCurrency);
   const amount = useAppSelector(state => state.main.currentAmount);
@@ -46,8 +46,20 @@ const AddTransaction: React.FC = () => {
     } else {
       result = amountThatWas;
     }
-    setCurrentAmount(`$ ${result.toString()}`);
+    setCurrentAmount(result.toString());
   };
+  const handleAmountChange = (e:any) => {
+    const {value} = e.target;
+    const numericValue = value.replace(/[^\d]/g, '');
+    if (amount !== undefined && !isNaN(amount) && Number(numericValue) <= Number(amount)) {
+      setCurrentAmount(numericValue.toString());
+    }
+  };
+  const handleKeyPress = (e:any) => {
+    if (e.key === 'Enter') {
+      e.currentTarget.blur();
+    }
+  }
   return (
     <>
       {windowWidth < 860 &&
@@ -75,7 +87,6 @@ const AddTransaction: React.FC = () => {
                   </p>
                 </div>
               </div>
-              {/*here will be logic to choose payment method*/}
               <div className="addTransactionPaymentMethodWrapper flex-s-b">
                 <div className="firstPart">
                   <img src={paymentMethod.image} className="addTransactionPaymentMethodLogo"/>
@@ -89,13 +100,13 @@ const AddTransaction: React.FC = () => {
               </span>
                 </div>
               </div>
-              {/*here will be addTransaction logic*/}
               <div className="addTransactionAmountWrapper">
                 <p className="addTransactionAmountHeading">
                   Amount
                 </p>
                 <div className="addTransactionAmount">
-                  {currentAmount}
+                  <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput" value={`$ ${currentAmount}`}
+                         type="text"/>
                 </div>
                 <div className="addTransactionAddAmountWrapper clearfix">
               <span onClick={addSomeAmount} className="addTransactionAddAmount">
