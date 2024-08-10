@@ -41,10 +41,10 @@ const addTransactionModal: React.FC = () => {
     setPromoValue('');
   };
   const addSomeAmount = (e: any) => {
-    const amountToAdd = globalThis.Number(e.target.innerHTML.split(' ')[1].slice(1));
-    const amountThatWas = globalThis.Number(currentAmount);
+    const amountToAdd = Number(e.target.innerHTML.split(' ')[1].slice(1));
+    const amountThatWas = Number(currentAmount);
     let result;
-    if ((amountThatWas + amountToAdd) <= globalThis.Number(amount)) {
+    if ((amountThatWas + amountToAdd) <= Number(amount)) {
       result = amountThatWas + amountToAdd;
     } else {
       result = amountThatWas;
@@ -57,7 +57,9 @@ const addTransactionModal: React.FC = () => {
   const handleAmountChange = (e:any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
-    if (amount !== undefined && !isNaN(amount) && globalThis.Number(numericValue) <= globalThis.Number(amount)) {
+    if (Number(numericValue) < 21) {
+      setCurrentAmount(currentAmount)
+    } else if (Number(numericValue) <= Number(amount)) {
       setCurrentAmount(numericValue.toString());
     }
   };

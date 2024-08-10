@@ -51,7 +51,9 @@ const AddTransaction: React.FC = () => {
   const handleAmountChange = (e:any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
-    if (amount !== undefined && !isNaN(amount) && Number(numericValue) <= Number(amount)) {
+    if (Number(numericValue) < 21) {
+      setCurrentAmount(currentAmount)
+    } else if (Number(numericValue) <= Number(amount)) {
       setCurrentAmount(numericValue.toString());
     }
   };
