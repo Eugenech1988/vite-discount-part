@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import useWindowWidth from '@/helpers/useWindowWidth';
+import debounce from 'lodash/debounce';
 import './style.scss';
 
 const AddTransaction: React.FC = () => {
@@ -48,20 +49,25 @@ const AddTransaction: React.FC = () => {
     }
     setCurrentAmount(result.toString());
   };
-  const handleAmountChange = (e:any) => {
+  const handleAmountChange = (e: any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
+
+    debouncedChange(numericValue);
+  };
+
+  const debouncedChange = debounce((numericValue: string) => {
     if (Number(numericValue) < 21) {
-      setCurrentAmount(currentAmount)
-    } else if (Number(numericValue) <= Number(amount)) {
+      setCurrentAmount(currentAmount);
+    } else if (Number(numericValue) <= Number(amount) && Number(numericValue) > 21) {
       setCurrentAmount(numericValue.toString());
     }
-  };
-  const handleKeyPress = (e:any) => {
+  }, 300);
+  const handleKeyPress = (e: any) => {
     if (e.key === 'Enter') {
       e.currentTarget.blur();
     }
-  }
+  };
   return (
     <>
       {windowWidth < 860 &&
@@ -107,7 +113,8 @@ const AddTransaction: React.FC = () => {
                   Amount
                 </p>
                 <div className="addTransactionAmount">
-                  <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput" value={`$ ${currentAmount}`}
+                  <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput"
+                         value={`$ ${currentAmount}`}
                          type="text"/>
                 </div>
                 <div className="addTransactionAddAmountWrapper clearfix">

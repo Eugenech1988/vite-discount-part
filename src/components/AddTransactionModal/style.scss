@@ -44,16 +44,10 @@
   }
   .addTransactionInput {
     border: 0;
+    text-align: center;
     line-height: 48px;
-    font-size: 16px;
-    background-color: $secondary;
-    color: $mainTextColor;
     padding: 0;
     width: 100%;
-    text-align: center;
-    &:focus {
-      outline: none;
-    }
   }
   .addTransactionsBalanceCount {
     font-size: 24px;

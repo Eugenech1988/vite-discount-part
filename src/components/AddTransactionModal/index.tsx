@@ -8,6 +8,7 @@ import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';
+import debounce from 'lodash/debounce';
 import './style.scss';
 
 const addTransactionModal: React.FC = () => {
@@ -57,12 +58,18 @@ const addTransactionModal: React.FC = () => {
   const handleAmountChange = (e:any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
+
+    debouncedChange(numericValue);
+  };
+
+  const debouncedChange = debounce((numericValue: string) => {
     if (Number(numericValue) < 21) {
-      setCurrentAmount(currentAmount)
-    } else if (Number(numericValue) <= Number(amount)) {
+      setCurrentAmount(currentAmount);
+    } else if (Number(numericValue) <= Number(amount) && Number(numericValue) > 21) {
       setCurrentAmount(numericValue.toString());
     }
-  };
+  }, 300);
+
   const handleKeyPress = (e:any) => {
     if (e.key === 'Enter') {
       e.currentTarget.blur();
