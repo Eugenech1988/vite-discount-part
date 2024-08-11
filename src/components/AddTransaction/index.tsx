@@ -57,12 +57,6 @@ const AddTransaction: React.FC = () => {
 
     setCurrentAmount(numericValue.toString());
   };
-
-  const handleKeyPress = (e: any) => {
-    if (e.key === 'Enter') {
-      e.currentTarget.blur();
-    }
-  };
   return (
     <>
       {windowWidth < 860 &&
@@ -72,34 +66,33 @@ const AddTransaction: React.FC = () => {
               onBackClick={handleBackClick}
               oncloseClick={handleCloseClick}
             />
-            <div className="addTransactionContent">
-              <BalanceBadge
-                currency={currency}
-                amount={amount}
-              />
-              <PaymentMethod
-                paymentMethod={paymentMethod}
-                onClick={() => {}}
-                showDropdown={false}
-              />
-              <AmountInput
-                currentAmount={currentAmount}
-                onAmountChange={handleAmountChange}
-                onKeyPress={handleKeyPress}
-                onAddAmount={addSomeAmount}
-              />
-              <PromoCodeInput
-                promoValue={promoValue}
-                isPromoRight={isPromoRight}
-                onPromoChange={handleDiscountChange}
-                onPromoSubmit={handleDiscountSubmit}
-              />
-              <button className="addTransactionSubmitBtn submitBtn">
+            <BalanceBadge
+              currency={currency}
+              amount={amount}
+            />
+            <PaymentMethod
+              paymentMethod={paymentMethod}
+              onClick={() => {
+              }}
+              showDropdown={false}
+            />
+            <AmountInput
+              currentAmount={currentAmount}
+              onAmountChange={handleAmountChange}
+              onKeyPress={() => {}}
+              onAddAmount={addSomeAmount}
+            />
+            <PromoCodeInput
+              promoValue={promoValue}
+              isPromoRight={isPromoRight}
+              onPromoChange={handleDiscountChange}
+              onPromoSubmit={handleDiscountSubmit}
+            />
+            <button className="addTransactionSubmitBtn submitBtn">
               <span onClick={handleCloseClick} className="addTransactionSubmitBtnText">
                 Deposit
               </span>
-              </button>
-            </div>
+            </button>
           </div>
         </div>
       }

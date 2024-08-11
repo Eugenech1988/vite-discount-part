@@ -67,10 +67,10 @@ const AddTransactionModal: React.FC = () => {
   };
 
   return (
-    <div className="addTransactionModalWrapper">
+    <>
       {windowWidth > 859 && (
-        <>
-          <div className="addTransactionOverlay" onClick={handleCloseClick} />
+        <div className="addTransactionModalWrapper">
+          <div className="addTransactionOverlay" onClick={handleCloseClick}/>
           <div className="addTransactionWrapper modal">
             <PaymentHeading
               onBackClick={handleBackClick}
@@ -101,9 +101,9 @@ const AddTransactionModal: React.FC = () => {
               <span className="addTransactionSubmitBtnText">Deposit</span>
             </button>
           </div>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

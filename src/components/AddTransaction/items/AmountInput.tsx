@@ -22,9 +22,9 @@ const AmountInput: React.FC<AmountInputProps> = ({ currentAmount, onAmountChange
       />
     </div>
     <div className="addTransactionAddAmountWrapper clearfix">
-      {addAmountButtonsSteps.map((amountBtn) => (
-        <span key={amountBtn} onClick={onAddAmount} className="addTransactionAddAmount">
-          + ${amountBtn}
+      {addAmountButtonsSteps.map((amountBtnStep) => (
+        <span key={amountBtnStep} onClick={onAddAmount} className="addTransactionAddAmount">
+          + ${amountBtnStep}
         </span>
       ))}
     </div>
