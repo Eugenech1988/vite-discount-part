@@ -18,7 +18,6 @@ const ContentComponent: React.FC = () => {
         <h2 className='subHeading'>
           Choose Payment Method
         </h2>
-        {/*here will be logics to choose payment method*/}
         <section className='paymentSection cardsSection'>
           <h3 className='paymentHeading'>
             Cards, E-Money, PIN
