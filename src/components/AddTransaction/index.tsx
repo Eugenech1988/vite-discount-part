@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import backIcon from '@/assets/back.svg';
-import closeIcon from '@/assets/close.svg';
-import AmountInput from '@/components/AddTransaction/components/AmountInput';
-import PromoCodeInput from '@/components/AddTransaction/components/PromoCodeInput';
-import PaymentMethod from '@/components/AddTransaction/components/PaymentMethod';
+import PaymentHeading from '@/components/AddTransaction/items/PaymentHeading';
+import AmountInput from '@/components/AddTransaction/items/AmountInput';
+import PromoCodeInput from '@/components/AddTransaction/items/PromoCodeInput';
+import PaymentMethod from '@/components/AddTransaction/items/PaymentMethod';
+import BalanceBadge from '@/components/AddTransaction/items/BalanceBadge';
 import { useNavigate } from 'react-router-dom';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
@@ -68,28 +68,15 @@ const AddTransaction: React.FC = () => {
       {windowWidth < 860 &&
         <div className="addTransactionWrapper">
           <div className="container">
-            <div className="addTransactionHeading flex-s-b">
-              <div className="addTransactionBack flex-s-b" onClick={handleBackClick}>
-                <img className="addTransactionBackIcon" src={backIcon}/>
-                <p>Back to Payment Methods</p>
-              </div>
-              <button className="addTransactionClose" onClick={handleCloseClick}>
-                <img src={closeIcon}/>
-              </button>
-            </div>
+            <PaymentHeading
+              onBackClick={handleBackClick}
+              oncloseClick={handleCloseClick}
+            />
             <div className="addTransactionContent">
-              <div className="addTransactionsBalanceBadge">
-                Current Balance:{'\u00A0'}
-                <div className="addTransactionBalanceCount">
-                  <p className="currency">
-                    {currency}
-                  </p>
-                  {'\u00A0'}
-                  <p className="currentAmount">
-                    {amount}
-                  </p>
-                </div>
-              </div>
+              <BalanceBadge
+                currency={currency}
+                amount={amount}
+              />
               <PaymentMethod
                 paymentMethod={paymentMethod}
                 onClick={() => {}}

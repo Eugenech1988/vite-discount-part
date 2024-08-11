@@ -35,7 +35,7 @@ const AddDeposit: React.FC = () => {
             {/*for the future it will be calc for current balance*/}
             <span onClick={handleSetDeposit}>125.02 $</span>
             <span onClick={handleSetDeposit}>100.20 €</span>
-            <span onClick={handleSetDeposit}>180.80 £</span>
+            {/*<span onClick={handleSetDeposit}>180.80 £</span>*/}
           </div>
         }
       </div>
