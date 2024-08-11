@@ -28,20 +28,16 @@ const AddTransaction: React.FC = () => {
   const handleCloseClick = () => {
     dispatch(setRemoveTransactionMenu());
   };
-  const handleDiscountChange = (e: any) => {
+  const handleDiscountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPromoValue(e.target.value);
-    if (e.target.value.length > 3) {
-      setPromoRight(true);
-    } else {
-      setPromoRight(false);
-    }
+    setPromoRight(e.target.value.length > 3);
   };
   const handleDiscountSubmit = () => {
     setPromoRight(false);
     setPromoValue('');
   };
-  const addSomeAmount = (e: any) => {
-    const amountToAdd = Number(e.target.innerHTML.split(' ')[1].slice(1));
+  const addSomeAmount = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
+    const amountToAdd = Number(e.currentTarget.innerHTML.split(' ')[1].slice(1));
     const amountThatWas = Number(currentAmount);
     let result;
     if ((amountThatWas + amountToAdd) < Number(amount)) {
@@ -51,7 +47,7 @@ const AddTransaction: React.FC = () => {
     }
     setCurrentAmount(result.toString());
   };
-  const handleAmountChange = (e: any) => {
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
 
