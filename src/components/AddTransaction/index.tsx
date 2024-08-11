@@ -49,25 +49,18 @@ const AddTransaction: React.FC = () => {
     }
     setCurrentAmount(result.toString());
   };
-  const handleAmountChange = (e: any) => {
+  const handleAmountChange = (e:any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
 
-    debouncedChange(numericValue);
+    setCurrentAmount(numericValue.toString());
   };
 
-  const debouncedChange = debounce((numericValue: string) => {
-    if (Number(numericValue) < 21) {
-      setCurrentAmount(currentAmount);
-    } else if (Number(numericValue) <= Number(amount) && Number(numericValue) > 21) {
-      setCurrentAmount(numericValue.toString());
-    }
-  }, 300);
-  const handleKeyPress = (e: any) => {
+  const handleKeyPress = (e:any) => {
     if (e.key === 'Enter') {
       e.currentTarget.blur();
     }
-  };
+  }
   return (
     <>
       {windowWidth < 860 &&
@@ -113,8 +106,7 @@ const AddTransaction: React.FC = () => {
                   Amount
                 </p>
                 <div className="addTransactionAmount">
-                  <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput"
-                         value={`$ ${currentAmount}`}
+                  <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput" value={`$ ${currentAmount}`}
                          type="text"/>
                 </div>
                 <div className="addTransactionAddAmountWrapper clearfix">

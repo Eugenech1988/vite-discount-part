@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useAppDispatch, useAppSelector } from '@/store/storeHook';
 import { useNavigate } from 'react-router-dom';
 import DepositMethodsDropDown from '@/components/DepositMethodsDropDown';
@@ -8,7 +8,6 @@ import chevronIcon from '@/assets/chevron.svg';
 import checkIcon from '@/assets/check.svg';
 import useWindowWidth from '@/helpers/useWindowWidth';
 import { setRemoveTransactionMenu } from '@/slices/mainSlice';
-import debounce from 'lodash/debounce';
 import './style.scss';
 
 const addTransactionModal: React.FC = () => {
@@ -55,26 +54,19 @@ const addTransactionModal: React.FC = () => {
   const handlePaymentMethodClick = () => {
     setMethodsDD(!showMethodsDD);
   };
-  const handleAmountChange = (e:any) => {
+
+  const handleAmountChange = (e: any) => {
     const {value} = e.target;
     const numericValue = value.replace(/[^\d]/g, '');
 
-    debouncedChange(numericValue);
+    setCurrentAmount(numericValue.toString());
   };
 
-  const debouncedChange = debounce((numericValue: string) => {
-    if (Number(numericValue) < 21) {
-      setCurrentAmount(currentAmount);
-    } else if (Number(numericValue) <= Number(amount) && Number(numericValue) > 21) {
-      setCurrentAmount(numericValue.toString());
-    }
-  }, 300);
-
-  const handleKeyPress = (e:any) => {
+  const handleKeyPress = (e: any) => {
     if (e.key === 'Enter') {
       e.currentTarget.blur();
     }
-  }
+  };
   return (
     <div className="addTransactionModalWrapper">
       {windowWidth > 859 &&
@@ -127,7 +119,8 @@ const addTransactionModal: React.FC = () => {
                 Amount
               </p>
               <div className="addTransactionAmount">
-                <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput" value={`$ ${currentAmount}`}
+                <input onChange={handleAmountChange} onKeyPress={handleKeyPress} className="addTransactionInput"
+                       value={`$ ${currentAmount}`}
                        type="text"/>
               </div>
               <div className="addTransactionAddAmountWrapper clearfix">
